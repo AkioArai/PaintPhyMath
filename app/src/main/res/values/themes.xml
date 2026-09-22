@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">#FF4F46E5</item>
+        <item name="android:colorPrimaryDark">#FF1E1B4B</item>
+        <item name="android:colorAccent">#FF6366F1</item>
+        <item name="android:statusBarColor">#FF14142B</item>
+        <item name="android:navigationBarColor">#FF14142B</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:alertDialogTheme">@style/DialogTheme</item>
+    </style>
+    <style name="DialogTheme" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorAccent">#FF4F46E5</item>
+        <item name="android:colorPrimary">#FF4F46E5</item>
+    </style>
+</resources>

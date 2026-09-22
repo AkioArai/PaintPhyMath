@@ -1,0 +1,52 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ '**' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build release APK
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon --stacktrace assembleRelease
+
+      - name: Collect APK
+        run: cp app/build/outputs/apk/release/app-release.apk PaintPhyMath.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PaintPhyMath-apk
+          path: PaintPhyMath.apk
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: PaintPhyMath 1.0.${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          files: PaintPhyMath.apk
+          make_latest: true
+          body: |
+            Сборка из ветки `${{ github.ref_name }}` (коммит ${{ github.sha }}).
+
+            Установка: скачайте **PaintPhyMath.apk** на планшет и откройте файл
+            (разрешите установку из неизвестных источников для браузера/файлового менеджера).
+            Обновления ставятся поверх — все сборки подписаны одним ключом.

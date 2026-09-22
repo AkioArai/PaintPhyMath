@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- оси -->
+    <path android:strokeColor="#66FFFFFF" android:strokeWidth="2.5" android:strokeLineCap="round"
+        android:pathData="M30,76 L80,76 M34,80 L34,30" />
+    <!-- график -->
+    <path android:strokeColor="#FFFDE68A" android:strokeWidth="4" android:strokeLineCap="round"
+        android:pathData="M34,72 C44,70 50,40 60,44 C68,47 70,62 80,34" />
+    <!-- перо -->
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M66,30 L74,22 L82,30 L74,38 Z" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M64,32 L72,40 L50,62 L42,64 L44,56 Z" />
+    <path android:fillColor="#FF312E81"
+        android:pathData="M44,56 L42,64 L50,62 Z" />
+</vector>
